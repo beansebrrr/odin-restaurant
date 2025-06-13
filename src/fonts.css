@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "Determination Mono";
+  font-weight: normal;
+  src: url(./fonts/determination-mono.woff);
+}
+@font-face {
+  font-family: "Determination Sans";
+  font-weight: normal;
+  src: url(./fonts/determination-sans.woff);
+}
+@font-face {
+  font-family: "Mercy";
+  src: url(./fonts/mercy.woff2);
+}
+
+* {
+  font-family: "Determination Sans";
+}
