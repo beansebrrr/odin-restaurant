@@ -12,3 +12,13 @@
   font-family: "Mercy";
   src: url(./fonts/mercy.woff2);
 }
+
+:root {
+  font-size: 2.5rem;
+}
+
+@media screen and (max-width: 420px) {
+  :root {
+    font-size: 1.5rem;
+  }
+}

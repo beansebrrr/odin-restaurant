@@ -6,3 +6,11 @@ export const newElement = ({ tagName, className, id, textContent }) => {
 
   return element
 }
+
+export const clearContainer = (selector) => {
+  if (!selector) console.error("Please set a selector. Or alternatively, use an HTML element as the parameter.")
+    
+  if (typeof(selector) === "string") document.querySelector(selector).replaceChildren("")
+  else if (selector.nodeType) selector.replaceChildren("")
+  else console.error("Invalid selector. Please enter a selector or the HTML element.")
+}
