@@ -2,10 +2,8 @@ import { newElement, clearContainer } from "./helper"
 import temShopkeeperPNG from "./images/tem.png"
 import littleTemmiePNG from "./images/temmie.png"
 
-const contentContainer = document.querySelector("#content")
-
-export const loadHomepage = () => {
-  clearContainer(contentContainer)
+export const loadHomepage = (container) => {
+  clearContainer(container)
 
   const temShop = newElement({ tagName: "div", className: "tem-shop",})
   const temShopkeeper = newElement({ tagName: "img", className: "temmie-shopkeeper",})
@@ -26,7 +24,7 @@ export const loadHomepage = () => {
   infoSection.appendChild(infoText)
   infoSection.appendChild(littleTemmie)
   
-  contentContainer.appendChild(temShop)
-  contentContainer.appendChild(infoSection)
+  container.appendChild(temShop)
+  container.appendChild(infoSection)
 
 }
