@@ -3,11 +3,11 @@
   --clr-white: #ffffff;
   --clr-orange: #ff7f27;
   --clr-yellow: #ffff00;
-  --clr-tem-blue: #00a2e8;
-  --clr-table: hsl(35, 51%, 85%);
+  --clr-blue: #00a2e8;
+  --clr-table: #d5b17f;
 
   --pad-inline: min(5rem, 8%);
-  box-sizing: content-box;
+  box-sizing: border-box;
   image-rendering: pixelated;
 }
 
@@ -18,6 +18,9 @@
 body {
   margin: 0;
   background-color: var(--clr-table);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header, footer {
@@ -93,6 +96,14 @@ footer {
   font-size: 0.75em;
 }
 
+#content {
+  flex: 1;
+}
+
+.small-temmie {
+  height: 96px;
+}
+
 .tem-shop {
   width: 100%;
   min-height: 320px;
@@ -104,58 +115,68 @@ footer {
   display: flex;
   justify-content: center;
   align-items: end;
-}
 
-#temmie-shopkeeper {
-  height: 75%;
-}
-
-.shop-info {
-  padding: 1rem var(--pad-inline);
-  display: flex;
-  justify-content: space-between;
-
-  p {
-    color: #222222;
+  .small-temmie {
+    translate: 0 -48px;
   }
 }
 
-.temmie {
-  height: 96px;
-  translate: 0 -48px;
+.tem-shop + .shop-info {
+  padding: 1rem var(--pad-inline);
+  display: flex;
+  justify-content: space-between;
+  
+  p {
+    color: #222222;
+  }
+  
 }
 
+.tem-shop .temmie-shopkeeper {
+  height: 75%;
+}
 
+.shop-listing .temmie-shopkeeper {
+  --_temmie-popup-height: 160px;
+  height: var(--_temmie-popup-height);
+  position: absolute;
+  top: calc(var(--_temmie-popup-height) * -1);
+  right: 0;
+}
 
-.shop, .shop__item {
+.shop-listing > ul, .shop__item {
   list-style-type: none;
   margin: 0;
+  padding: 0;
 }
 
-.shop {
-  display: grid;
+.shop-listing {
   padding: 0.5rem var(--pad-inline);
-  grid-template-columns: repeat(auto-fit, min(500px, 100%));
+}
+
+.shop-listing > ul {
+  display: grid;
   gap: 0.25rem;
-  justify-content: space-around;
+  position: relative;
 }
 
 .shop__item {
   display: flex;
-  gap: 0.25rem;
+  gap: 0.5rem;
   justify-content: space-between;
   background-color: var(--clr-black);
   color: var(--clr-white);
   border: var(--clr-white) solid 4px;
-  padding: 0.5rem;
+  padding: 0.5rem 1.5rem;
 }
 
 .item-name, .item-price {
+  font-weight: 400;
   margin: 0;
 }
 
 .item-name .note {
-  color: var(--clr-tem-blue);
+  color: var(--clr-blue);
   &::before { content: " ("; }
   &::after  { content: ")"; }
 }
@@ -164,7 +185,14 @@ footer {
   &::after { content: "G"; }
 }
 
+
+
+
 @media screen and (max-width: 600px) {
   nav { justify-content: center }
   nav button { font-size: 1em }
+
+  .shop .temmie-shopkeeper {
+    --_temmie-popup-height: 120px;
+  }
 }

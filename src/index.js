@@ -1,7 +1,5 @@
 import "./fonts.css"
 import "./style.css"
+import { loadHomepage } from "./home"
 
-import { loadHomescreen } from "./home"
-console.log("Hello, world.")
-
-// loadHomescreen()
+// loadHomepage()
