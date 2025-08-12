@@ -1,17 +1,17 @@
 import { newElement, clearContainer } from "./helper"
-import temShopkeeperPNG from "./images/tem.png"
+import shopkeeperPNG from "./images/shopkeeper.png"
 import littleTemmiePNG from "./images/temmie.png"
 
 export const loadHomepage = (container) => {
   clearContainer(container)
 
-  const temShop = newElement({ tagName: "div", className: "tem-shop",})
-  const temShopkeeper = newElement({ tagName: "img", className: "temmie-shopkeeper",})
-  temShopkeeper.src = temShopkeeperPNG
+  const storefront = newElement({ tagName: "div", className: "storefront",})
+  const shopkeeper = newElement({ tagName: "img", className: "shopkeeper",})
+  shopkeeper.src = shopkeeperPNG
   
-  temShop.appendChild(temShopkeeper)
+  storefront.appendChild(shopkeeper)
   
-  const infoSection = newElement({ tagName: "div", className: "shop-info",})
+  const infoSection = newElement({ tagName: "div", className: "info-section",})
   
   const infoText = newElement({tagName: "div",})
   infoText.appendChild(newElement({ tagName: "h1", textContent: "fhsdhjf dsfjsd dshjfsd",}))
@@ -24,7 +24,6 @@ export const loadHomepage = (container) => {
   infoSection.appendChild(infoText)
   infoSection.appendChild(littleTemmie)
   
-  container.appendChild(temShop)
+  container.appendChild(storefront)
   container.appendChild(infoSection)
-
 }

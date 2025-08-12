@@ -104,10 +104,10 @@ footer {
   height: 96px;
 }
 
-.tem-shop {
+.storefront {
   width: 100%;
   min-height: 320px;
-  background-image: url(./images/temshop.png);
+  background-image: url(./images/shop-bg.png);
   background-position: center;
   aspect-ratio: 8 / 3;
   background-size: cover;
@@ -121,7 +121,7 @@ footer {
   }
 }
 
-.tem-shop + .shop-info {
+.storefront + .info-section {
   padding: 1rem var(--pad-inline);
   display: flex;
   justify-content: space-between;
@@ -129,38 +129,38 @@ footer {
   p {
     color: #222222;
   }
-  
 }
 
-.tem-shop .temmie-shopkeeper {
+.storefront .shopkeeper {
   height: 75%;
 }
 
-.shop-listing .temmie-shopkeeper {
-  --_temmie-popup-height: 160px;
-  height: var(--_temmie-popup-height);
+.shop-page .shopkeeper {
+  --_shopkeeper-popup-height: 160px;
+  height: var(--_shopkeeper-popup-height);
   position: absolute;
-  top: calc(var(--_temmie-popup-height) * -1);
+  top: calc(var(--_shopkeeper-popup-height) * -1);
   right: 0;
 }
 
-.shop-listing > ul, .shop__item {
+.shop-page > ul,
+.shop-item {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-.shop-listing {
+.shop-page {
   padding: 0.5rem var(--pad-inline);
 }
 
-.shop-listing > ul {
+.shop-page > ul {
   display: grid;
   gap: 0.25rem;
   position: relative;
 }
 
-.shop__item {
+.shop-item {
   display: flex;
   gap: 0.5rem;
   justify-content: space-between;
@@ -170,29 +170,27 @@ footer {
   padding: 0.5rem 1.5rem;
 }
 
-.item-name, .item-price {
+.shop-item__name, .shop-item__price {
   font-weight: 400;
   margin: 0;
 }
 
-.item-name .note {
+.shop-item__name .shop-item__note {
   color: var(--clr-blue);
   &::before { content: " ("; }
   &::after  { content: ")"; }
 }
 
-.item-price {
+.shop-item__price {
   &::after { content: "G"; }
 }
-
-
 
 
 @media screen and (max-width: 600px) {
   nav { justify-content: center }
   nav button { font-size: 1em }
 
-  .shop .temmie-shopkeeper {
+  .shop-page .shopkeeper {
     --_temmie-popup-height: 120px;
   }
 }
