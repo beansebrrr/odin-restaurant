@@ -1,6 +1,7 @@
-import { newElement, clearContainer } from "./helper"
+import { newElement, clearContainer, bulkAppend } from "./helper"
+import shopkeeperPNG from "./images/shopkeeper.png"
 
-export function createAccordion(title, content) {
+function createAccordion({ title, content }) {
   const titleElement = newElement({ tagName: "button", className: "accordion-title", textContent: title });
   let contentElement;
   
@@ -13,10 +14,11 @@ export function createAccordion(title, content) {
     });
   }
 
-  const accordion = newElement({ tagName: "div", className: "accordion" });
-  accordion.appendChild(titleElement);
-  accordion.appendChild(contentElement);
-  
+  const accordion = bulkAppend(
+    newElement({ tagName: "div", className: "accordion accordion--collapsed" }),
+    [titleElement, contentElement]
+  );
+
   function toggleCollapsed() {
     accordion.classList.toggle("accordion--collapsed")
   }
@@ -25,4 +27,19 @@ export function createAccordion(title, content) {
   return accordion;
 }
 
-const accordionBoard = newElement({ tagName: "section", className: "qna-board" })
+
+export function loadAboutPage(container) {
+  clearContainer(container)
+  container.classList = ["about-page"]
+
+  const accordionBoard = bulkAppend(newElement({ tagName: "section", className: "qna-board" }),
+  [
+    createAccordion({ title: "hello", content: ["hOI!!!", "i'm temmie"] }),
+    createAccordion({ title: "about yourself", content: ["hOI!!!", "i'm temmie"] }),
+    createAccordion({ title: "temmie history", content: "us tems hav a DEEP HISTORY!!!" }),
+    createAccordion({ title: "about shop", content: "yaYA!!! go to TEM SHOP!!!" }),
+  ])
+
+  bulkAppend(container, [newElement({ tagName: "img", className: "shopkeeper", imgSrc: shopkeeperPNG})])
+  container.appendChild(accordionBoard)
+}

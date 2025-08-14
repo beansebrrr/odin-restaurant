@@ -1,8 +1,10 @@
-export const newElement = ({ tagName, className, id, textContent }) => {
+export const newElement = ({ tagName, className, id, textContent, imgSrc }) => {
   const element = document.createElement(tagName)
-  if (className) element.classList.add(className)
+  if (className) element.className = className
   if (id) element.id = id
   if (textContent) element.textContent = textContent
+
+  if (tagName == "img") element.src = imgSrc
 
   return element
 }
@@ -16,5 +18,6 @@ export const clearContainer = (selector) => {
 }
 
 export const bulkAppend = (parentElement, arrayOfChildren) => {
-  
+  arrayOfChildren.forEach(child => parentElement.appendChild(child))
+  return parentElement
 }
