@@ -6,5 +6,5 @@ import { loadShop } from "./shop"
 
 const contentContainer = document.querySelector("div#content")
 
-loadHomepage(contentContainer)
-loadShop(contentContainer)
+// loadHomepage(contentContainer)
+// loadShop(contentContainer)
