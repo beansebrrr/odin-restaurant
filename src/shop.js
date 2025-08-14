@@ -24,7 +24,7 @@ class shopItem {
 }
 
 function createShoplist(arrayOfShopItems) {
-  const listElement = newElement({ tagName: "ul"})
+  const listElement = newElement({ tagName: "ul" })
   const temmieShopkeeper = newElement({ tagName: "img", className: "shopkeeper"})
   temmieShopkeeper.src = temShopkeeperPNG
 

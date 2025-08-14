@@ -14,3 +14,7 @@ export const clearContainer = (selector) => {
   else if (selector.nodeType) selector.replaceChildren("")
   else console.error("Invalid selector. Please enter a selector or the HTML element.")
 }
+
+export const bulkAppend = (parentElement, arrayOfChildren) => {
+  
+}
